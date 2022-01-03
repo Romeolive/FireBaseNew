@@ -30,8 +30,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "final";
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     Button firstBtn;
     Button secondBtn;
@@ -40,29 +38,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editText;
 
-    public class User {
-
-        public String Q1;
-        public String Q2;
-        public  String Q3;
-
-        public User() {
-            // Default constructor required for calls to DataSnapshot.getValue(User.class)
-        }
-
-        public String User1(String a, String b, String c) {
-            return a+""+b+""+c;
-        }
-
-
-        public String User(String username, String email, String third) {
-            this.Q1 = Q1;
-            this.Q2 = Q2;
-            this.Q3 = Q3;
-            return Q1+""+Q2+""+Q3;
-        }
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,96 +51,44 @@ public class MainActivity extends AppCompatActivity {
         editText = findViewById(R.id.exampletextEdit);
 
 
-        Map<String, Object> user = new HashMap<>();
-
-        db.collection("users")
-                .add(user)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
-                    }
-                });
-
-        db.collection("users")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.w(TAG, "Error getting documents.", task.getException());
-                        }
-                    }
-                });
 
 
         firstBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                AlertDialog.Builder bui1 = new AlertDialog.Builder(MainActivity.this);
-//                bui1.setMessage("Ответ неверный");
-//                bui1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        dialogInterface.cancel();
-//                    }
-//                });
-//                AlertDialog alei = bui1.create();
-//                alei.show();
-                editText.append((String) user.get("first"));
+                AlertDialog.Builder bui1 = new AlertDialog.Builder(MainActivity.this);
+                bui1.setMessage("Ответ неверный");
 
+                bui1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                AlertDialog alei = bui1.create();
+                alei.show();
 
             }
         });
 
+        secondBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder bui2 = new AlertDialog.Builder(MainActivity.this);
+                bui2.setMessage("Молодец");
+                bui2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                        startActivity(intent);
+                        MainActivity.this.finish();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        secondBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                AlertDialog.Builder bui2 = new AlertDialog.Builder(MainActivity.this);
-//                bui2.setMessage("Молодец");
-//                bui2.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialogInterface, int i) {
-//                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
-//                        startActivity(intent);
-//                        MainActivity.this.finish();
-//
-//                    }
-//                });
-//                AlertDialog alei2 = bui2.show();
-//                alei2.show();
-//            }
-//        });
+                    }
+                });
+                AlertDialog alei2 = bui2.show();
+                alei2.show();
+            }
+        });
 
 
 
