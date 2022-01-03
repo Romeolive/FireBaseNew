@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -14,7 +15,10 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        ImageView imageView = findViewById(R.id.irkutsk);
         Animation animation = AnimationUtils.loadAnimation(this,R.anim.fade_in);
+        imageView.startAnimation(animation);
+
         animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
@@ -33,5 +37,7 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
 }
