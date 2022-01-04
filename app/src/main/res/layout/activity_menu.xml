@@ -16,13 +16,12 @@
         android:layout_height="66dp"
         android:layout_marginLeft="230px"
         android:layout_marginTop="700px"
+        android:backgroundTint="@color/purple_200"
+        android:onClick="playMenu"
         android:text="@string/play"
         android:textAlignment="center"
-        android:textSize="70px"
         android:textColor="@color/Indigo"
-        android:backgroundTint="@color/purple_200"
-
-        android:onClick="playMenu"
+        android:textSize="70px"
         tools:ignore="OnClick" />
 
     <Button
