@@ -20,5 +20,15 @@
         android:textAlignment="center"
         android:textSize="70px" />
 
+    <Button
+        android:layout_width="600px"
+        android:layout_height="66dp"
+        android:layout_marginLeft="230px"
+        android:layout_marginTop="50px"
+        android:textColor="@color/white"
+        android:text="@string/irkipedia"
+        android:textAlignment="center"
+        android:textSize="60px" />
+
 
 </LinearLayout>
