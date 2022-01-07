@@ -30,23 +30,16 @@ public class LevelOne extends AppCompatActivity {
     DocumentReference docRef = db.collection("questionFirstLevel").document("questionFirstLevel");
     private static final String TAG = "USER";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one);
 
         levelOneQuestion = findViewById(R.id.levelOneQuestion);
-
         levelOneAnswerOne = findViewById(R.id.levelOneAnswerOne);
         levelOneAnswerTwo = findViewById(R.id.levelOneAnswerTwo);
         levelOneAnswerThree = findViewById(R.id.levelOneAnswerThree);
         levelOneAnswerFour = findViewById(R.id.levelOneAnswerFour);
-
-
-
-
-
 
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
 
