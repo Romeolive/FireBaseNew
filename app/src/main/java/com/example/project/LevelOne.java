@@ -62,9 +62,6 @@ public class LevelOne extends AppCompatActivity {
                         levelOneAnswerTwo.setText(document.getData().get("answerFirstLevelTwo").toString());
                         levelOneAnswerThree.setText(document.getData().get("answerFirstLevelThree").toString());
                         levelOneAnswerFour.setText(document.getData().get("answerFirstLevelFour").toString());
-
-
-
                     } else {
                         Log.d(TAG, "No such document");
                     }
