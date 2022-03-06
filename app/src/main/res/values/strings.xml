@@ -13,4 +13,10 @@
     <string name="play">ИГРАТЬ</string>
     <string name="irkipedia">ИРКИПЕДИЯ</string>
 
+
+    <string name="button1">История</string>
+    <string name="button2">Известный люди</string>
+    <string name="button3">Памятники и символы</string>
+
+
 </resources>

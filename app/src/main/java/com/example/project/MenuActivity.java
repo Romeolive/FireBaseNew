@@ -22,7 +22,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void playMenu(View view) {
-        Intent intent = new Intent(MenuActivity.this,MainActivity.class);
+        Intent intent = new Intent(MenuActivity.this,Sub_menu.class);
         startActivity(intent);
         MenuActivity.this.onPause();
     }
